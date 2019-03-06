@@ -5,6 +5,10 @@
   font-family: sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
+
 :root {
   --header-height: 70px;
   --mainBcgColor: #006600;
@@ -18,7 +22,6 @@
   --elementHeightLandscape: 10vw;
   --elementHeightPortrait: 10vh;
   --elementHeightPortraitSmaller: 8vh;
-  --elementHeightLandscapeSmaller: 10vh;
 }
 
 header {
@@ -46,6 +49,17 @@ main {
   height: 100%;
   background-color: var(--redColor);
   border: 2px solid var(--borderColor);
+  animation: redDivSpin infinite 10s linear;
+}
+
+@keyframes redDivSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .equalRoundContainer {
@@ -61,6 +75,17 @@ main {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
+  animation: equalShow 0.5s linear;
+}
+
+@keyframes equalShow {
+  from {
+    transform: translateX(-100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .equalRoundContainer div:nth-of-type(2) {
@@ -68,6 +93,17 @@ main {
   background-color: var(--tanColor);
   border-radius: 50%;
   border: 2px solid var(--borderColor);
+  animation: roundShow 0.5s linear;
+}
+
+@keyframes roundShow {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .equalRoundContainer span {
@@ -85,6 +121,34 @@ main {
   width: 150px;
   background-color: var(--blueColor);
   border: 2px solid var(--borderColor);
+  animation: moveTextDiv 2s linear;
+}
+
+@keyframes moveTextDiv {
+  0% {
+    transform: translateY(100vh);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  60% {
+    transform: translateX(-5vw);
+  }
+
+  70% {
+    transform: translateX(0);
+  }
+
+  80% {
+    transform: translateX(-5vw);
+  }
+
+  100% {
+    transform: translateX(0);
+    transform: translateY(0);
+  }
 }
 
 h1 {
@@ -204,33 +268,33 @@ h1 {
 /* smartphones landscape */
 @media(max-height: 350px) {
   .twoRedSquaresContainer {
-    top: calc(var(--header-height) + var(--elementHeightLandscapeSmaller) / 1.3);
+    top: calc(var(--header-height) + var(--elementHeightPortrait) / 1.3);
     left: 40vw;
-    height: var(--elementHeightLandscapeSmaller);
-    width: calc(var(--elementHeightLandscapeSmaller) * 2.5);
+    height: var(--elementHeightPortrait);
+    width: calc(var(--elementHeightPortrait) * 2.5);
   }
 
   .twoRedSquaresContainer div {
-    width: var(--elementHeightLandscapeSmaller);
+    width: var(--elementHeightPortrait);
   }
 
   .equalRoundContainer {
-    top: 50vh;
+    top: 55vh;
     left: 32vw;
-    height: var(--elementHeightLandscapeSmaller);
-    width: calc(var(--elementHeightLandscapeSmaller) * 2.5);
+    height: var(--elementHeightPortrait);
+    width: calc(var(--elementHeightPortrait) * 2.5);
   }
 
   .equalRoundContainer div:nth-of-type(1) {
-    width: var(--elementHeightLandscapeSmaller);
+    width: var(--elementHeightPortrait);
   }
 
   .equalRoundContainer div:nth-of-type(2) {
-    width: var(--elementHeightLandscapeSmaller);
+    width: var(--elementHeightPortrait);
   }
 
   .equalRoundContainer span {
-    height: calc(var(--elementHeightLandscapeSmaller) / 5);
+    height: calc(var(--elementHeightPortrait) / 5);
   }
 
   .textDivContainer {
